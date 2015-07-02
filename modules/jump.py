@@ -1,6 +1,6 @@
 def resolve(args, frame):
 	if not args:
-		duration = 0
+		duration = 1
 	elif len(args) == 1:
 		duration = args[0]
 		if type(duration) != int:
