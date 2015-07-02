@@ -20,9 +20,6 @@ You can specify the dependancies of the input file, if one of the dependencies i
 python converter.py input.cfg -o output.cfg -i -d"dep1.cfg,dep2.cfg"
 ```
 
-##License
-[GPL](http://www.gnu.org/licenses/gpl.txt)
-
 ##Commands
 ###attack
 ```
@@ -107,3 +104,6 @@ Activates _use_ during _duration_ frames. If _duration_ is not set then _use_ is
 wait duration
 ```
 Increments the frame counter by _duration_.
+
+##License
+[GPL](http://www.gnu.org/licenses/gpl.txt)
