@@ -13,21 +13,25 @@
 
 from grako.parsing import graken, Parser
 from grammar import *
-from importlib import import_module
 from multiprocessing import Process
 from multiprocessing import Value
+from importlib import machinery
 import os
 import sys
 import time
 import json
 
-def load_modules(dir="modules"):
+def load_modules(dir=None):
+    if dir is None:
+        dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "modules")
+        print(dir)
     modules = {}
     for f in os.listdir(dir):
         if os.path.isfile(os.path.join(dir, f)) and f.endswith(".py"):
             module_name = f[:-3]
             try:
-                module = import_module(dir + "." + module_name)
+                module = machinery.SourceFileLoader(module_name, os.path.join(dir, f))
+                module = module.load_module()
             except ImportError as e:
                 print("Can't load module", module_name, ":\n", e)
             else:
