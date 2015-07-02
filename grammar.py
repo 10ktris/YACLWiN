@@ -15,7 +15,7 @@ from __future__ import print_function, division, absolute_import, unicode_litera
 from grako.parsing import graken, Parser
 
 
-__version__ = (2015, 7, 2, 2, 19, 18, 3)
+__version__ = (2015, 7, 2, 15, 25, 40, 3)
 
 __all__ = [
     'grammarParser',
@@ -114,7 +114,7 @@ class grammarParser(Parser):
 
     @graken()
     def _import_id_(self):
-        self._pattern(r'[^ ]+')
+        self._pattern(r'[^ \n]+')
 
     @graken()
     def _cmd_(self):

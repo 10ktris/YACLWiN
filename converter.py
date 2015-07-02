@@ -71,7 +71,7 @@ def eval_ast(ast, modules, start_frame):
                         txt, current_frame = convert(subsub["action"]["import_"], current_frame)
                     except Exception as e:
                         raise Exception("Error while importing {}.\n{}"
-                            .format(subsub["action"]["import_"]), e)
+                            .format(subsub["action"]["import_"], e))
                 result += "\n" + txt
     return result, current_frame
 
@@ -90,11 +90,11 @@ def parse(filename):
         nameguard=True)
     return ast
 
-def convert(filename, start_frame=0):
+def convert(filename, start_frame=0, root=False):
     ast = parse(filename)
     modules = load_modules()
     txt, frames = eval_ast(ast, modules, start_frame)
-    if start_frame == 0:
+    if root:
         # reset the frame count to make the the movie sync
         txt = "_y_spt_afterframes_reset\n" + txt
     return txt, frames
@@ -119,7 +119,7 @@ def interactive(filename, dep, output, end):
         if need_convert:
             txt = ""
             try:
-                txt, current_frame = convert(filename)
+                txt, current_frame = convert(filename, root=True)
             except Exception as e:
                 if last_check <= os.path.getmtime(filename):
                     print("[{}] convertion of {} failed.\n{}".format(time.ctime(time.time()), filename, e))
@@ -159,7 +159,7 @@ if __name__ == '__main__':
             end_inter_mode.value = True
             p.join()
     else:
-        txt, frames = convert(args.file)
+        txt, frames = convert(args.file, root=True)
         if args.output:
             with open(args.output, "w") as f:
                 f.write(txt)

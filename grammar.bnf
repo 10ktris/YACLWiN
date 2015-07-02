@@ -29,7 +29,7 @@ literal = string | float | int ;
 
 
 import = "import" space import:import_id ;
-import_id = /[^ ]+/ ;
+import_id = /[^ \n]+/ ;
 
 
 
