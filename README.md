@@ -61,7 +61,7 @@ Moves to the left during _duration_ frames. If _duration_ is not set then moveme
 ```
 next
 ```
-Increaments the frame counter by 1. See wait to increament the frame count by a specified number
+Increaments the frame counter by 1. See _wait_ to increment the frame count by a specified number
 
 ###pause
 ```
@@ -89,7 +89,7 @@ Moves to the right during _duration_ amout of frames. If _duration_ is not set t
 
 ###setang
 ```
-left x_ang y_ang
+setang <x_ang> <y_ang>
 ```
 Sets the orientation of the camera.
 
