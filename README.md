@@ -79,7 +79,7 @@ Records the game (see [here](https://developer.valvesoftware.com/wiki/Demo_Recor
 ```
 resetall
 ```
-Disables attack, attack2, back, forward, left, right, jump, use. Set the (camera) angles to 0.0
+Disables attack, attack2, back, forward, left, right, jump, use. Set the camera's speed to 0 (the camera orientation is not modified)
 
 ###right
 ```
@@ -87,11 +87,35 @@ right [duration]
 ```
 Moves to the right during _duration_ amout of frames. If _duration_ is not set then movement is activated during 1 frame
 
-###setang
+###setangles
 ```
-setang <x_ang> <y_ang>
+setangles <x_angle> <y_angle>
 ```
 Sets the orientation of the camera.
+
+###setxangle
+```
+setxangle <angle>
+```
+Sets the orientation (x axe) of the camera.
+
+###setyangle
+```
+setyangle <angle>
+```
+Sets the orientation (y axe) of the camera.
+
+###setxanglespeed
+```
+setxanglespeed <angle>
+```
+Sets the camera speed (x axe).
+
+###setyanglespeed
+```
+setyanglespeed <angle>
+```
+Sets the camera speed (y axe).
 
 ###unpause
 ```
