@@ -61,7 +61,7 @@ Moves to the left during _duration_ frames. If _duration_ is not set then moveme
 ```
 next
 ```
-Increaments the frame counter by 1. See _wait_ to increment the frame count by a specified number
+Increments the frame counter by 1. See _wait_ to increment the frame count by a specified number
 
 ###pause
 ```
@@ -131,7 +131,7 @@ Activates _use_ during _duration_ frames. If _duration_ is not set then _use_ is
 
 ###wait
 ```
-wait [duration]
+wait <duration>
 ```
 Increments the frame counter by _duration_.
 
