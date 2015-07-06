@@ -48,7 +48,7 @@ def convert_args(args):
         elif "float" in arg:
             result = float(arg["float"])
         elif "string" in arg:
-            result = arg["string"][1:-2] # remove " at begining and end
+            result = arg["string"][1:-1] # remove " at begining and end
         new_args.append(result)
     return new_args
 
