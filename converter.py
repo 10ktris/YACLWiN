@@ -65,7 +65,10 @@ def eval_ast(ast, modules, start_frame):
                 if "cmd" in subsub["action"]:
                     module_name = subsub["action"]["cmd"]
                     args = convert_args(subsub["action"]["args"])
-                    module = modules[module_name]
+                    module = modules.get(module_name, None)
+                    if not module:
+                        raise Exception(("Can't find the module "
+                            "corresponding to the function {}'").format(module_name))
                     try:
                         txt, current_frame = module.resolve(args, current_frame)
                     except Exception as e:

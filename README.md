@@ -131,7 +131,7 @@ Activates _use_ during _duration_ frames. If _duration_ is not set then _use_ is
 
 ###wait
 ```
-wait duration
+wait [duration]
 ```
 Increments the frame counter by _duration_.
 
