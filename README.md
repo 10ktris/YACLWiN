@@ -69,6 +69,12 @@ pause [frame]
 ```
 Pauses the game at the current frame. If the parameter _frame_ is set then the game is paused at that frame
 
+###record
+```
+record [duration] [name]
+```
+Records the game (see [here](https://developer.valvesoftware.com/wiki/Demo_Recording_Tools) to get more info). If _duration_ is not set the default value is 1000. If _name_ is not set the default name file is 'TAS_demo'.
+
 ###resetall
 ```
 resetall
