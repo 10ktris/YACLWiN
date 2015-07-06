@@ -21,10 +21,11 @@ import sys
 import time
 import json
 
+TIME_BETWEEN_CHECKS = 0.5 # in second
+
 def load_modules(dir=None):
     if dir is None:
         dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "modules")
-        print(dir)
     modules = {}
     for f in os.listdir(dir):
         if os.path.isfile(os.path.join(dir, f)) and f.endswith(".py"):
@@ -99,7 +100,7 @@ def convert(filename, start_frame=0, root=False):
     modules = load_modules()
     txt, frames = eval_ast(ast, modules, start_frame)
     if root:
-        # reset the frame count to make the the movie sync
+        # reset the frame count to make the movie sync
         txt = "_y_spt_afterframes_reset\n" + txt
     return txt, frames
 
@@ -118,7 +119,7 @@ def check_new_update(filename, dep, output):
 def interactive(filename, dep, output, end):
     last_check = 0
     while not end.value:
-        time.sleep(0.5)
+        time.sleep(TIME_BETWEEN_CHECKS)
         need_convert = check_new_update(filename, dep, output)
         if need_convert:
             txt = ""
@@ -150,7 +151,7 @@ if __name__ == '__main__':
         if not args.output:
             print("The ouput file is not optional when the interactive mode is activated")
             exit()
-        dep = args.dependencies.split(",")
+        dep = [f for f in args.dependencies.split(",") if f]
         print("Interactive mode activated "
               "(Press [enter] to quit).\n"
               "Waiting for modifications...")
