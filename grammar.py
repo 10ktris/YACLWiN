@@ -15,7 +15,7 @@ from __future__ import print_function, division, absolute_import, unicode_litera
 from grako.parsing import graken, Parser
 
 
-__version__ = (2015, 7, 2, 15, 25, 40, 3)
+__version__ = (2015, 7, 10, 22, 52, 47, 4)
 
 __all__ = [
     'grammarParser',
@@ -36,30 +36,9 @@ class grammarParser(Parser):
         )
 
     @graken()
-    def _letter_(self):
-        self._pattern(r'[a-zA-Z]')
-
-    @graken()
-    def _digit_(self):
-        self._pattern(r'[0-9]')
-
-    @graken()
-    def _number_(self):
-        self._pattern(r'[0-9]+')
-
-    @graken()
-    def _sign_(self):
-        with self._choice():
-            with self._option():
-                self._token('+')
-            with self._option():
-                self._token('-')
-            self._error('expecting one of: + -')
-
-    @graken()
     def _int_(self):
         with self._group():
-            self._pattern(r'[i+]?[0-9]+')
+            self._pattern(r'[-+]?[0-9]+')
         self.ast['int'] = self.last_node
 
         self.ast._define(
@@ -232,18 +211,6 @@ class grammarParser(Parser):
 
 
 class grammarSemantics(object):
-    def letter(self, ast):
-        return ast
-
-    def digit(self, ast):
-        return ast
-
-    def number(self, ast):
-        return ast
-
-    def sign(self, ast):
-        return ast
-
     def int(self, ast):
         return ast
 

@@ -12,16 +12,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-letter = /[a-zA-Z]/ ;
 
-digit = /[0-9]/ ;
-
-number = /[0-9]+/ ;
-sign = "+" | "-" ;
-
-
-
-int = int:(/[i+]?[0-9]+/) ;
+int = int:(/[-+]?[0-9]+/) ;
 float = float:(/[-+]?[0-9]*\.[0-9]+/) ;
 string = string:(/"[^"\r\n]*"/) ;
 literal = string | float | int ;
