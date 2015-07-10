@@ -15,7 +15,7 @@ The interactive mode can be invoked with the following command :
 ```sh
 python converter.py input.cfg -o output.cfg -i
 ```
-You can specify the dependancies of the input file, if one of the dependencies is changed then the output file will be regenerated.
+You can specify the dependencies of the input file, if one of the dependencies is changed then the output file will be regenerated.
 ```sh
 python converter.py input.cfg -o output.cfg -i -d"dep1.cfg,dep2.cfg"
 ```
