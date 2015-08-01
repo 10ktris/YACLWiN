@@ -6,5 +6,5 @@ def resolve(args, frame):
 	else:
 		raise Exception("Wrong number of arguments")
 	
-	result  = '_y_spt_afterframes {} "exec ' + name + '"'\n'.format(frame)
+	result  = '_y_spt_afterframes {} "exec ' + name + '"\n'.format(frame)
 	return result, frame
